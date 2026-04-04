@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlantStore | Vivero Online</title>
+<meta name="description" content="Catálogo online de plantas y viveros. Comprá fácil y rápido por WhatsApp.">
+<meta name="keywords" content="plantas, vivero, comprar plantas, plantas online, jardinería">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="./styles.css">
+    </head>
+
+<body>
+
+    <!==== Header ====>
+<header>
+  <div class="Contenedor-header">
+
+    <div class="logo">
+      <span>🌿</span>
+      <p>PlantStore</p>
+    </div>
+
+    <div class="buscador">
+      <input type="text" id="buscador" placeholder="Buscar plantas...">
+    </div>
+
+    <div class="header-textos">
+      <h1>Tu vivero online</h1>
+      <h2>Comprá plantas fácil y rápido</h2>
+    </div>
+
+  </div>
+</header>
+
+<!==== Navegador ====>
+
+<nav>
+  <ul class="nav-menu">
+    <li><a href="./index.html"><strong>Inicio</strong></a></li>
+    <li><a href="./pages/tienda.html#interior"><strong>Interior</strong></a></li>
+    <li><a href="./pages/tienda.html#exterior"><strong>Exterior</strong></a></li>
+    <li><a href="./pages/tienda.html#exoticas"><strong>Exóticas</strong></a></li>
+    <li><a href="./pages/tienda.html#insumos"><strong>Insumos</strong></a></li>
+    <li><a href="./pages/tienda.html#ofertas"><strong>Ofertas</strong></a></li>
+    <li><a href="./pages/tienda.html#contacto"><strong>Contacto</strong></a></li>
+  </ul>
+</nav>
+
+<!==== Hero ====>
+
+<div class="hero-contenido">
+
+  <img class="hero-img" src="./img/heroimg.png" alt="imagen">
+
+  <div class="hero-overlay">
+
+    <div class="hero-texto">
+      <h1>Transformá tu espacio con naturaleza</h1>
+      <p>Explorá nuestro catálogo y hacé tu pedido por WhatsApp</p>
+    </div>
+
+    <button id="btnPromo">Ver promociones</button>
+
+  </div>
+
+</div>
+
+<!==== Categorias ====>
+<!-- 🌱 Categorías -->
+<section class="categorias">
+    <h2>Nuestras Categorías</h2>
+
+    <div class="grid-categorias">
+
+        <article class="card-categoria">
+            <div class="card-contenido">
+                <h3>🌱 Plantas de Interior</h3>
+                <p>Ideales para decorar tu hogar u oficina</p>
+                <button class="btn-tienda">Ir a tienda</button>
+            </div>
+        </article>
+
+        <article class="card-categoria">
+            <div class="card-contenido">
+                <h3>🌳 Plantas de Exterior</h3>
+                <p>Perfectas para jardines, patios y balcones</p>
+                <button class="btn-tienda">Ir a tienda</button>
+            </div>
+        </article>
+
+        <article class="card-categoria">
+            <div class="card-contenido">
+                <h3>🌵 Plantas Exóticas</h3>
+                <p>Dale un toque único y diferente a tu espacio</p>
+                <button class="btn-tienda">Ir a tienda</button>
+            </div>
+        </article>
+
+        <article class="card-categoria">
+            <div class="card-contenido">
+                <h3>🪴 Insumos</h3>
+                <p>Macetas, tierra, fertilizantes y accesorios</p>
+                <button class="btn-tienda">Ir a tienda</button>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- 🛍️ Productos Destacados -->
+<section class="destacados">
+    <h2>Productos Destacados</h2>
+    
+    <div class="grid-productos">
+
+        <article class="card-producto">
+            <h3>Monstera Deliciosa</h3>
+            <p>$1200</p>
+            <button class="btn-agregar">Agregar al carrito</button>
+        </article>
+
+        <article class="card-producto">
+            <h3>Ficus Lyrata</h3>
+            <p>$1500</p>
+            <button class="btn-agregar">Agregar al carrito</button>
+        </article>
+
+        <article class="card-producto">
+            <h3>Cactus Mix</h3>
+            <p>$800</p>
+            <button class="btn-agregar">Agregar al carrito</button>
+        </article>
+
+    </div>
+</section>
+
+<!-- 🧺 Carrito -->
+<section class="carrito">
+    <h2>Tu carrito</h2>
+    
+    <div id="lista-carrito">
+        <p>Tu carrito está vacío 🌿</p>
+    </div>
+
+    <button id="btn-whatsapp">
+        Finalizar compra por WhatsApp
+    </button>
+</section>
+
+<!-- Contacto -->
+<section class="contacto">
+    <h2>Contacto</h2>
+    <p>¿Sos un vivero y querés tu propia tienda?</p>
+
+    <button id="btn-contacto">Contactanos</button>
+
+    <div class="redes">
+        <a href="#" class="icono">
+            <img src="./img/logoinsta.png" alt="Instagram">
+        </a>
+
+        <a href="#" class="icono">
+            <img src="./img/logoface.png" alt="Facebook">
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+
+  <footer>
+
+
+
+        <div class="footer-grid">
+
+         <nav>
+  <ul class="nav-footer">
+    
+    <li><a href="./pages/tienda.html#interior"><strong>Interior</strong></a></li>
+    <li><a href="./pages/tienda.html#exterior"><strong>Exterior</strong></a></li>
+    <li><a href="./pages/tienda.html#exoticas"><strong>Exóticas</strong></a></li>
+    <li><a href="./pages/tienda.html#insumos"><strong>Insumos</strong></a></li>
+    <li><a href="./pages/tienda.html#ofertas"><strong>Ofertas</strong></a></li>
+    
+  </ul>
+</nav>
+
+            <!-- Columna 2 -->
+            <div class="footer-col footer-center">
+                <img class="footer-map" src="./img/mapatransparente.png" alt="Envíos a todo el país">
+                <p class="footer-copy">© 2026 Gastón Jaureguiberry</p>
+            </div>
+
+           
+
+        </div>
+
+    </footer>
+<script src="tienda.js"></script>
+</body>
+</html>

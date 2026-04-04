@@ -1,0 +1,255 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #2e7d32, #43a047, #81c784);
+  overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+header {
+  text-align: center;
+  padding: 30px 20px;
+  color: white;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* BUSCADOR */
+#buscador {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  width: 200px;
+}
+
+/* TITULOS */
+header h1 {
+  font-size: 2rem;
+}
+
+header h2 {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ================= NAV ================= */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  list-style: none;
+
+  background: #1ba175;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  background: wheat;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  background: #29dba0;
+}
+
+/* ================= SECCIONES ================= */
+section {
+  margin-top: 40px;
+}
+
+section h2 {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+
+  text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+/* ================= PRODUCTOS ================= */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* CARD */
+.card-producto {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+}
+
+.card-producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-producto h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* PRECIO */
+.card-producto p:first-of-type {
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+/* INFO EXTRA */
+.card-producto p {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* BOTON */
+.btn-agregar {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #2e7d32;
+  color: white;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-agregar:hover {
+  background: #1b5e20;
+  transform: scale(1.03);
+}
+
+/* ================= CARRITO ================= */
+.carrito {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+
+  background: white;
+  border-radius: 20px;
+
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.carrito h2 {
+  margin-bottom: 15px;
+  color: #2b2b2b;
+}
+
+#lista-carrito div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+/* BOTONES CARRITO */
+#lista-carrito button {
+  border: none;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* TOTAL */
+#lista-carrito strong {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* BOTON WHATSAPP */
+#btn-whatsapp {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btn-whatsapp:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  padding: 20px;
+
+  color: white;
+  font-size: 14px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .container-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #buscador {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  .carrito {
+    margin: 40px 10px;
+  }
+}

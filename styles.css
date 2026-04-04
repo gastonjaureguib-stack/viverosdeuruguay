@@ -1,0 +1,727 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+ font-family: 'Segoe UI', sans-serif;
+ background: linear-gradient(120deg, #2e7d32, #43a047, #81c784);
+ overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+.Contenedor-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 20px;
+}
+
+/*logo*/
+.logo {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 50px;
+}
+
+/*Buscador*/
+.buscador {
+  justify-self: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.buscador input {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/*Textos*/
+.header-textos {
+  justify-self: end;
+  text-align: right;
+}
+
+.header-textos h1,
+.header-textos h2 {
+  margin: 0;
+}
+
+
+/* ================= NAVBAR ================= */
+
+
+
+.nav-menu {
+  display: flex;
+  text-align: center;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 20px;
+  list-style: none;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  background: #1ba175;
+  justify-content: center;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-menu li {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background:wheat;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  background: #29dba0;
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding: 1px;
+}
+
+.hero-contenido {
+  position: relative;
+  height: 524px;
+  border-bottom-left-radius: 50px;
+border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
+
+/* imagen */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* overlay oscuro */
+.hero-contenido::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding: 20px;
+  color: white;
+}
+
+/* texto izquierda */
+.hero-texto {
+  max-width: 60%;
+}
+
+.hero-texto h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.hero-texto p {
+  margin: 5px 0 0 0;
+}
+
+/* botón  */
+#btnPromo {
+  padding: 12px 20px;
+  background: #43a047;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+#btnPromo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  background: #2e7d32;
+}
+
+/* ================= CATEGORÍAS ================= */
+/* GRID */
+.grid-categorias {
+  display: grid;
+  gap: 25px;
+  max-width: 1500px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+  }
+
+  .categorias h2 {
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 3rem;
+
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* CARD */
+.card-categoria {
+  background: wheat;
+  border-radius: 20px;
+  padding: 25px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* EFECTO HOVER */
+.card-categoria:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* EFECTO BRILLO SUTIL */
+.card-categoria::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: 0.5s;
+}
+
+.card-categoria:hover::before {
+  left: 100%;
+}
+
+/* CONTENIDO */
+.card-contenido {
+  position: relative;
+  z-index: 2;
+}
+
+/* TITULO */
+.card-categoria h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* TEXTO */
+.card-categoria p {
+  font-size: 14px;
+  color: black;
+  margin-bottom: 15px;
+}
+
+/* BOTÓN */
+.btn-tienda {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: white;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER BOTÓN */
+.btn-tienda:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+
+/* ================= PRODUCTOS ================= */
+
+/* TITULO */
+.destacados h2 {
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 60px;
+
+  text-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* GRID */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 30px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* CARD */
+.card-producto {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HOVER */
+.card-producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* TITULO PRODUCTO */
+.card-producto h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* PRECIO */
+.card-producto p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+/* BOTÓN */
+.btn-agregar {
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #2e7d32;
+  color: white;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER BOTÓN */
+.btn-agregar:hover {
+  background: #1b5e20;
+  transform: scale(1.03);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* ================= CARRITO ================= */
+/* =========================
+   🧺 CARRITO
+========================= */
+
+.carrito {
+  max-width: 550px;
+  margin: 80px auto;
+  padding: 25px;
+
+  background: white;
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* TITULO */
+.carrito h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2b2b2b;
+}
+
+/* CONTENEDOR ITEMS */
+#lista-carrito {
+  margin-top: 20px;
+}
+
+/* ITEM INDIVIDUAL */
+#lista-carrito div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 15px;
+  margin-bottom: 10px;
+
+  background: #f7f9f7;
+  border-radius: 12px;
+
+  transition: 0.2s;
+}
+
+/* HOVER ITEM */
+#lista-carrito div:hover {
+  background: #eef5ef;
+}
+
+/* CONTROLES (+ -) */
+#lista-carrito div div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BOTONES */
+#lista-carrito button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  cursor: pointer;
+  background: #e0e0e0;
+
+  transition: 0.2s;
+}
+
+#lista-carrito button:hover {
+  background: #c8e6c9;
+  transform: scale(1.1);
+}
+
+/* PRECIO */
+#lista-carrito span:last-child {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* TOTAL */
+#lista-carrito strong {
+  display: block;
+  text-align: right;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+/* MENSAJE VACÍO */
+#lista-carrito p {
+  color: #777;
+  margin: 20px 0;
+}
+
+/* =========================
+   💬 BOTÓN WHATSAPP
+========================= */
+
+#btn-whatsapp {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: 15px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+#btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ================= CONTACTO ================= */
+
+.contacto {
+  max-width: 900px;        
+  margin: 60px auto;       
+  margin-bottom: 1px;
+  text-align: center;
+  padding: 30px 20px;     
+  padding-bottom: 51px;
+
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+/* TITULO */
+.contacto h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* TEXTO */
+.contacto p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+#btn-contacto {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+
+  background: white;
+  color: #2e7d32;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+#btn-contacto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Redes */
+
+.redes {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* ICONOS */
+.icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+
+  transition: 0.3s;
+}
+
+/* IMAGEN */
+.icono img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* HOVER */
+.icono:hover {
+  background: white;
+  transform: scale(1.1);
+}
+/* ================= FOOTER ================= */
+
+
+.footer {
+  background: linear-gradient(120deg, #2e7d32, #43a047, #81c784);
+  color: white;
+  padding: 20px 20px 10px;
+  
+}
+
+
+
+/* NAV */
+.nav-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  padding-top: 50px;
+}
+
+/* BOTONES */
+.nav-footer li {
+  list-style: none;
+}
+
+.nav-footer a {
+  text-decoration: none;
+  color: #e8f5e9;
+
+  background: rgba(0,0,0,0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  transition: 0.3s;
+}
+
+.nav-footer a:hover {
+  background: wheat;
+  color: #2e7d32;
+  transform: translateY(-2px);
+}
+
+/* CENTRO */
+.footer-center {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* MAPA */
+.footer-map {
+  width: 400px;
+  margin-bottom: 3px;
+}
+
+/* COPY */
+.footer-copy {
+  font-size: 1rem;
+  margin-top: 0;
+}
+/* =========================
+   📱 MOBILE (MEJORADO)
+========================= */
+
+@media (max-width: 768px) {
+
+  /* ===== HEADER ===== */
+  .Contenedor-header {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .logo {
+    justify-content: center;
+    font-size: 35px;
+  }
+
+  .header-textos {
+    text-align: center;
+  }
+
+  .buscador input {
+    max-width: 100%;
+  }
+
+  /* ===== NAV ===== */
+  .nav-menu {
+    justify-content: flex-start;
+    padding: 15px;
+  }
+
+  /* ===== HERO ===== */
+  .hero-contenido {
+    height: 300px;
+  }
+
+  .hero-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero-texto {
+    max-width: 100%;
+  }
+
+  .hero-texto h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-texto p {
+    font-size: 0.9rem;
+  }
+
+  #btnPromo {
+    width: 100%;
+  }
+
+  /* ===== TITULOS ===== */
+  .categorias h2,
+  .destacados h2,
+  .contacto h2 {
+    font-size: 1.8rem;
+  }
+
+  /* ===== CATEGORIAS ===== */
+  .grid-categorias {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+  }
+
+  /* ===== PRODUCTOS ===== */
+  .grid-productos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ===== CARRITO ===== */
+  .carrito {
+    margin: 40px 10px;
+    padding: 20px;
+  }
+
+  /* ===== CONTACTO ===== */
+  .contacto {
+    margin: 40px 10px;
+    padding: 25px 15px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-map {
+    width: 180px;
+  }
+
+  .nav-footer {
+    gap: 6px;
+    padding-top: 20px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+  }
+}

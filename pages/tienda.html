@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda | PlantStore</title>
+
+    <link rel="stylesheet" href="../css/tienda.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+
+    <div class="container-header">
+
+        <div class="logo">
+            🌿 <span>PlantStore</span>
+        </div>
+
+        <!-- 🔍 BUSCADOR -->
+        <input type="text" id="buscador" placeholder="Buscar plantas...">
+
+    </div>
+
+    <h1>Tienda online</h1>
+    <h2>Elegí tus plantas favoritas</h2>
+
+</header>
+
+<!-- ================= NAV ================= -->
+<nav>
+    <ul class="nav-menu">
+        <li><a href="#interior">Interior</a></li>
+        <li><a href="#exterior">Exterior</a></li>
+        <li><a href="#exoticas">Exóticas</a></li>
+        <li><a href="#insumos">Insumos</a></li>
+    </ul>
+</nav>
+
+<!-- ================= INTERIOR ================= -->
+<section id="interior">
+    <h2>🌱 Plantas de Interior</h2>
+
+    <div class="grid-productos">
+
+        <article class="card-producto">
+            <h3>Monstera Deliciosa</h3>
+            <p>$1200</p>
+            <p>Luz indirecta</p>
+            <p>Riego semanal</p>
+            <button class="btn-agregar">Agregar</button>
+        </article>
+
+        <article class="card-producto">
+            <h3>Ficus Lyrata</h3>
+            <p>$1500</p>
+            <p>Luz abundante</p>
+            <p>Riego cada 7 días</p>
+            <button class="btn-agregar">Agregar</button>
+        </article>
+
+        <article class="card-producto">
+            <h3>Sansevieria</h3>
+            <p>$900</p>
+            <p>Muy resistente</p>
+            <p>Riego cada 15 días</p>
+            <button class="btn-agregar">Agregar</button>
+        </article>
+
+        <article class="card-producto">
+            <h3>Pothos</h3>
+            <p>$800</p>
+            <p>Ideal colgante</p>
+            <p>Riego semanal</p>
+            <button class="btn-agregar">Agregar</button>
+        </article>
+
+    </div>
+</section>
+
+<!-- ================= EXTERIOR ================= -->
+<section id="exterior">
+    <h2>🌳 Plantas de Exterior</h2>
+
+    <div class="grid-productos">
+
+        <article class="card-producto">
+            <h3>Lavanda</h3>
+            <p>$700</p>
+            <p>Sol directo</p>
+            <p>Riego moderado</p>
+            <button class="btn-agregar">Agregar</button>
+        </article>
+
+        <article class="card-producto">
+            <h3>Rosal</h3>
+            <p>$1000</p>
+            <p>Flor ornamental</p>
+            <p>Riego frecuente</p>
+            <button class="btn-agregar">Agregar</button>
+        </article>
+
+    </div>
+</section>
+
+<!-- ================= CARRITO ================= -->
+<section class="carrito">
+
+    <h2>🛒 Tu carrito</h2>
+
+    <div id="lista-carrito">
+        <p>Tu carrito está vacío</p>
+    </div>
+
+    <button id="btn-whatsapp">
+        Finalizar pedido por WhatsApp
+    </button>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 PlantStore</p>
+</footer>
+
+<!-- JS -->
+<script src="tienda.js"></script>
+
+</body>
+</html>
