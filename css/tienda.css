@@ -170,6 +170,14 @@ section h2 {
   color: #555;
 }
 
+.card-producto img {
+    width: 100%;       
+    height: 300px;    
+    object-fit: cover; 
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
 /* BOTON */
 .btn-agregar {
   width: 100%;
@@ -194,74 +202,147 @@ section h2 {
 
 
 /* ================= CARRITO ================= */
+/* Carrito moderno */
 .carrito {
-  max-width: 500px;
-  margin: 60px auto;
-  padding: 20px;
-
-  background: white;
-  border-radius: 20px;
-
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fefefe;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .carrito h2 {
-  margin-bottom: 15px;
-  color: #2b2b2b;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2a6b2a;
 }
 
-#lista-carrito div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: #f5f5f5;
-  padding: 10px;
-  margin-bottom: 8px;
-  border-radius: 10px;
+#lista-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
-/* BOTONES CARRITO */
-#lista-carrito button {
-  border: none;
-  padding: 5px 8px;
-  border-radius: 6px;
-  cursor: pointer;
+.emoji-carrito {
+    width: 70px;       /* ajusta según tu gusto */
+    height: auto;
+    vertical-align: middle; /* queda alineado con el texto */
+    margin-left: 5px;
+    
 }
 
-/* TOTAL */
-#lista-carrito strong {
-  display: block;
-  text-align: right;
-  margin-top: 10px;
+/* Cada producto */
+.item-carrito {
+    display: flex;
+    justify-content: space-between; /* Nombre a la izquierda, controles a la derecha */
+    align-items: center;
+    padding: 12px 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s; /* tu transición original */
 }
 
-/* BOTON WHATSAPP */
+
+.item-carrito:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.item-info {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+}
+
+.item-info .nombre {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+.item-info .precio {
+    font-weight: bold;
+    color: #2a6b2a;
+}
+
+/* Controles de cantidad */
+.item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-cantidad button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    margin-right: 5px;
+}
+
+.item-cantidad button:hover {
+    background: #1b5e20;
+}
+
+.item-cantidad .cantidad {
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Botón eliminar */
+.item-carrito button.eliminar {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.item-carrito button.eliminar:hover {
+    background: #e60000;
+}
+
+/* Total */
+.total-carrito {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    color: #2a6b2a;
+}
+
+/* Botón WhatsApp */
 #btn-whatsapp {
-  width: 100%;
-  margin-top: 15px;
-  padding: 12px;
-
-  border: none;
-  border-radius: 12px;
-
-  background: linear-gradient(135deg, #25d366, #128c7e);
-  color: white;
-
-  cursor: pointer;
-  transition: 0.3s;
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    margin-top: 20px;
+    background: #2e7d32;;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
 #btn-whatsapp:hover {
-  transform: translateY(-3px);
-}
-
-.card-producto img {
-  width: 100%;
-  height: 300px; 
-  object-fit: cover;
-  border-radius: 10px;
+    background: #1ebe5d;
+    transform: scale(1.03);
 }
 
 /* ================= FOOTER ================= */
@@ -287,14 +368,63 @@ footer {
   }
 
   header h1 {
-    font-size: 1.5rem;
+    font-size: 3.0rem;
   }
 
   section h2 {
-    font-size: 1.5rem;
+    font-size: 2.1rem;
   }
+.logo {
+  font-size: 2rem;
+  color: wheat;
+  padding-bottom: 30px;
+}
 
   .carrito {
     margin: 40px 10px;
   }
+}
+/* ===== NAV ===== */
+  .nav-menu {
+    justify-content:center;
+    padding: 15px;
+  }
+
+  /* Ajustes de cards para mobile */
+@media (max-width: 768px) {
+    .grid-productos {
+        gap: 20px; /* menos espacio entre cards */
+    }
+
+    .card-producto {
+        padding: 10px;          /* menos padding interno */
+        border-radius: 20px;    /* bordes un poquito más pequeños */
+        max-width: 350px;       /* limita ancho */
+        margin: auto;           /* centra la card en la grilla */
+    }
+
+    .card-producto img {
+    width: 100%;       /* se adapta al ancho de la card */
+    height: auto;      /* mantiene proporción */
+    display: block;    /* elimina posibles espacios extra */
+    border-radius: 12px; /* opcional para que se vea más bonito */
+}
+
+    .card-producto h3 {
+        font-size: 1.5rem;        /* texto más compacto */
+        margin-bottom: 6px;
+    }
+
+    .card-producto p {
+        font-size: 1.5rem;        /* precio y demás más chico */
+        margin-bottom: 4px;
+    }
+
+    .btn-agregar {
+    display: block;        /* para centrar con margin auto */
+    margin: 15px auto 0;   /* centrado horizontal, separacion superior */
+    padding: 8px;
+    font-size: 1rem;
+    width:250px;           /* 🔹 deja que el botón se ajuste al texto */
+}
 }

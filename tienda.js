@@ -163,13 +163,72 @@ function renderCarrito() {
     listaCarrito.innerHTML = "";
 
     if (carrito.length === 0) {
-        listaCarrito.innerHTML = "<p>Tu carrito está vacío</p>";
+        listaCarrito.innerHTML = "<p>Tu carrito está vacío 🌿</p>";
         return;
     }
 
-    carrito.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}`;
-        listaCarrito.appendChild(li);
+    carrito.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.classList.add("item-carrito");
+
+        div.innerHTML = `
+            <div class="item-info">
+                <span class="nombre">${item.nombre}</span>
+                <span class="precio">$${item.precio}</span>
+            </div>
+            <div class="item-cantidad">
+                <button class="restar" data-index="${index}">-</button>
+                <span class="cantidad">${item.cantidad}</span>
+                <button class="sumar" data-index="${index}">+</button>
+            </div>
+            <button class="eliminar" data-index="${index}">X</button>
+        `;
+
+        listaCarrito.appendChild(div);
+    });
+
+    // Total
+    const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+    const divTotal = document.createElement("div");
+    divTotal.classList.add("total-carrito");
+    divTotal.textContent = `Total: $${total}`;
+    listaCarrito.appendChild(divTotal);
+
+    activarBotonesCarrito();
+}
+
+function activarBotonesCarrito() {
+    // Botón eliminar
+    listaCarrito.querySelectorAll(".eliminar").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const index = btn.dataset.index;
+            carrito.splice(index, 1);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            renderCarrito();
+        });
+    });
+
+    // Botón sumar
+    listaCarrito.querySelectorAll(".sumar").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const index = btn.dataset.index;
+            carrito[index].cantidad += 1;
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            renderCarrito();
+        });
+    });
+
+    // Botón restar
+    listaCarrito.querySelectorAll(".restar").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const index = btn.dataset.index;
+            if (carrito[index].cantidad > 1) {
+                carrito[index].cantidad -= 1;
+            } else {
+                carrito.splice(index, 1); // si llega a 0, elimina el producto
+            }
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            renderCarrito();
+        });
     });
 }
