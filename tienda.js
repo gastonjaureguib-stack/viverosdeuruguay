@@ -61,14 +61,12 @@ const buscador = document.getElementById("buscador");
 document.addEventListener("DOMContentLoaded", () => {
     renderProductos();
     renderCarrito();
-    
 });
 
 // ============================
 // 🧱 RENDER PRODUCTOS
 // ============================
 function renderProductos() {
-
     const contenedores = {
         interior: document.getElementById("productos-interior"),
         exterior: document.getElementById("productos-exterior"),
@@ -76,7 +74,6 @@ function renderProductos() {
     };
 
     PRODUCTOS.forEach(prod => {
-
         const contenedor = contenedores[prod.categoria];
         if (!contenedor) return;
 
@@ -97,4 +94,82 @@ function renderProductos() {
     activarEventos();
 }
 
+// ============================
+// 🛠 ACTIVAR EVENTOS
+// ============================
+function activarEventos() {
+    const btnsAgregar = document.querySelectorAll(".btn-agregar");
+    btnsAgregar.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            agregarAlCarrito(index);
+        });
+    });
 
+    btnWhatsapp.addEventListener("click", () => {
+        if (carrito.length === 0) {
+            Swal.fire({
+                title: "Carrito vacío",
+                text: "Agrega productos antes de enviar tu pedido",
+                icon: "warning",
+                timer: 1500,
+                showConfirmButton: false
+            });
+            return;
+        }
+
+        let mensaje = "Hola! Quiero hacer un pedido de PlantStore:\n\n";
+        carrito.forEach(item => {
+            mensaje += `- ${item.nombre} x${item.cantidad} = $${item.precio * item.cantidad}\n`;
+        });
+        const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+        mensaje += `\nTotal: $${total}`;
+
+        const url = `https://wa.me/${TELEFONO}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, "_blank");
+    });
+}
+
+// ============================
+// 🛒 AGREGAR AL CARRITO
+// ============================
+function agregarAlCarrito(index) {
+    const producto = PRODUCTOS[index];
+
+    const existe = carrito.find(item => item.nombre === producto.nombre);
+    if (existe) {
+        existe.cantidad += 1;
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderCarrito();
+
+    if (typeof Swal !== "undefined") {
+        Swal.fire({
+            title: "Agregado al carrito",
+            text: `${producto.nombre} se ha agregado correctamente`,
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false
+        });
+    }
+}
+
+// ============================
+// 🛒 RENDER CARRITO
+// ============================
+function renderCarrito() {
+    listaCarrito.innerHTML = "";
+
+    if (carrito.length === 0) {
+        listaCarrito.innerHTML = "<p>Tu carrito está vacío</p>";
+        return;
+    }
+
+    carrito.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}`;
+        listaCarrito.appendChild(li);
+    });
+}
