@@ -359,96 +359,147 @@ border-bottom-right-radius: 50px;
 }
 
 /* ================= CARRITO ================= */
-/* =========================
-   🧺 CARRITO
-========================= */
-
+/* Carrito moderno */
 .carrito {
-  max-width: 550px;
-  margin: 80px auto;
-  padding: 25px;
-
-  background: white;
-  border-radius: 20px;
-
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-  text-align: center;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fefefe;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
-/* TITULO */
 .carrito h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #2b2b2b;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2a6b2a;
 }
 
-/* CONTENEDOR ITEMS */
 #lista-carrito {
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
-/* ITEM INDIVIDUAL */
-#lista-carrito div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 12px 15px;
-  margin-bottom: 10px;
-
-  background: #f7f9f7;
-  border-radius: 12px;
-
-  transition: 0.2s;
+.emoji-carrito {
+    width: 70px;       /* ajusta según tu gusto */
+    height: auto;
+    vertical-align: middle; /* queda alineado con el texto */
+    margin-left: 5px;
+    
 }
 
-/* HOVER ITEM */
-#lista-carrito div:hover {
-  background: #eef5ef;
+/* Cada producto */
+.item-carrito {
+    display: flex;
+    justify-content: space-between; /* Nombre a la izquierda, controles a la derecha */
+    align-items: center;
+    padding: 12px 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s; /* tu transición original */
 }
 
-/* CONTROLES (+ -) */
-#lista-carrito div div {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+
+.item-carrito:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 }
 
-/* BOTONES */
-#lista-carrito button {
-  border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-
-  cursor: pointer;
-  background: #e0e0e0;
-
-  transition: 0.2s;
+.item-info {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
 }
 
-#lista-carrito button:hover {
-  background: #c8e6c9;
-  transform: scale(1.1);
+.item-info .nombre {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
 }
 
-/* PRECIO */
-#lista-carrito span:last-child {
-  font-weight: bold;
-  color: #2e7d32;
+.item-info .precio {
+    font-weight: bold;
+    color: #2a6b2a;
 }
 
-/* TOTAL */
-#lista-carrito strong {
-  display: block;
-  text-align: right;
-  font-size: 18px;
-  margin-top: 15px;
+/* Controles de cantidad */
+.item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-/* MENSAJE VACÍO */
-#lista-carrito p {
-  color: #777;
-  margin: 20px 0;
+.item-cantidad button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    margin-right: 5px;
+}
+
+.item-cantidad button:hover {
+    background: #1b5e20;
+}
+
+.item-cantidad .cantidad {
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Botón eliminar */
+.item-carrito button.eliminar {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.item-carrito button.eliminar:hover {
+    background: #e60000;
+}
+
+/* Total */
+.total-carrito {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    color: #2a6b2a;
+}
+
+/* Botón WhatsApp */
+#btn-whatsapp {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    margin-top: 20px;
+    background: #2e7d32;;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#btn-whatsapp:hover {
+    background: #1ebe5d;
+    transform: scale(1.03);
 }
 
 /* =========================
