@@ -4,19 +4,12 @@
 const TELEFONO = "59800000000";
 
 // ============================
-// 🔧 HELPER IMG
-// ============================
-function getImg(nombre) {
-    return `img/plantas/${nombre.toLowerCase().replaceAll(" ", "-")}.jpg`;
-}
-
-// ============================
 // 🌿 PRODUCTOS
 // ============================
 const PRODUCTOS = [
     // 🌱 INTERIOR
     { nombre: "Dracena", precio: 260, categoria: "interior", imagen: "../img/plantas/dracena.png" },
-    { nombre: "Triostar", precio: 450, categoria: "interior", imagen: "../img/plantas/triostar.png" }, // ⚠️ si no existe, cambiá nombre
+    { nombre: "Triostar", precio: 450, categoria: "interior", imagen: "../img/plantas/triostar.png" },
     { nombre: "Ficus Burgundy", precio: 1190, categoria: "interior", imagen: "../img/plantas/ficusburgundy.png" },
     { nombre: "Monstera Deliciosa", precio: 1290, categoria: "interior", imagen: "../img/plantas/monsteradeliciosa.png" },
     { nombre: "Pothos Brasil", precio: 490, categoria: "interior", imagen: "../img/plantas/pothosbrasil.png" },
@@ -36,7 +29,7 @@ const PRODUCTOS = [
 
     // 🌳 EXTERIOR
     { nombre: "Pata de Elefante", precio: 790, categoria: "exterior", imagen: "../img/plantas/patadeelefante.png" },
-    { nombre: "Shiflera", precio: 250, categoria: "exterior", imagen: "../img/plantas/shiflera.png" }, // ⚠️ si no existe
+    { nombre: "Shiflera", precio: 250, categoria: "exterior", imagen: "../img/plantas/shiflera.png" },
     { nombre: "Chamadorea", precio: 430, categoria: "exterior", imagen: "../img/plantas/chamadorea.png" },
     { nombre: "Croton", precio: 600, categoria: "exterior", imagen: "../img/plantas/croton.png" },
     { nombre: "Ficus Elastica", precio: 1200, categoria: "exterior", imagen: "../img/plantas/ficuselastica.png" },
@@ -49,6 +42,7 @@ const PRODUCTOS = [
     { nombre: "Alocasia Black Velvet", precio: 490, categoria: "exoticas", imagen: "../img/plantas/alocasiablackvelvet.png" },
     { nombre: "Alocasia Crupea", precio: 750, categoria: "exoticas", imagen: "../img/plantas/alocasiacrupea.png" }
 ];
+
 // ============================
 // 🛒 ESTADO
 // ============================
@@ -67,6 +61,7 @@ const buscador = document.getElementById("buscador");
 document.addEventListener("DOMContentLoaded", () => {
     renderProductos();
     renderCarrito();
+    
 });
 
 // ============================
@@ -90,7 +85,7 @@ function renderProductos() {
 
         card.innerHTML = `
             <img src="${prod.imagen}" alt="${prod.nombre}" 
-                 onerror="this.src='img/plantas/default.jpg'">
+                 onerror="this.src='../img/plantas/default.jpg'">
             <h3>${prod.nombre}</h3>
             <p>$${prod.precio}</p>
             <button class="btn-agregar">Agregar</button>
@@ -101,3 +96,5 @@ function renderProductos() {
 
     activarEventos();
 }
+
+

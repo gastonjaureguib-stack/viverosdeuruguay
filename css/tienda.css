@@ -192,6 +192,8 @@ section h2 {
   transform: scale(1.03);
 }
 
+
+
 /* ================= CARRITO ================= */
 .carrito {
   max-width: 500px;
@@ -258,7 +260,7 @@ section h2 {
 
 .card-producto img {
   width: 100%;
-  height: 180px; /* 🔥 controla el tamaño */
+  height: 300px; 
   object-fit: cover;
   border-radius: 10px;
 }
