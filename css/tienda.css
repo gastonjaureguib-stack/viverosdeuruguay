@@ -57,10 +57,9 @@ header h2 {
   list-style: none;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
-  background:#1ba175;;
-  justify-content: flex-start; /* 🔥 CLAVE */
+  background:#1ba175;
+  justify-content: center; /* 🔹 ahora centrado */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  
 }
 
 .nav-menu::-webkit-scrollbar {
