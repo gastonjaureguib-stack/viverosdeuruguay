@@ -7,7 +7,7 @@
 
 body {
  font-family: 'Segoe UI', sans-serif;
- background: linear-gradient(120deg, #2e7d32, #43a047, #81c784);
+ background: linear-gradient(135deg, #004444, #0a6b6b, #2aa198);
  overflow-x: hidden;
 }
 
@@ -26,6 +26,7 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 50px;
+  color: wheat;
 }
 
 /*Buscador*/
@@ -48,11 +49,13 @@ body {
 .header-textos {
   justify-self: end;
   text-align: right;
+  color: white;
 }
 
 .header-textos h1,
 .header-textos h2 {
   margin: 0;
+  color: white;
 }
 
 

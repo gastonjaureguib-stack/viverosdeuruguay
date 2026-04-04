@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(120deg, #2e7d32, #43a047, #81c784);
+  background: linear-gradient(135deg, #004444, #0a6b6b, #2aa198);
   overflow-x: hidden;
 }
 
@@ -57,9 +57,10 @@ header h2 {
   list-style: none;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
-  background: #1ba175;
+  background:#1ba175;;
   justify-content: flex-start; /* 🔥 CLAVE */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
 }
 
 .nav-menu::-webkit-scrollbar {
@@ -253,6 +254,13 @@ section h2 {
 
 #btn-whatsapp:hover {
   transform: translateY(-3px);
+}
+
+.card-producto img {
+  width: 100%;
+  height: 180px; /* 🔥 controla el tamaño */
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 /* ================= FOOTER ================= */
