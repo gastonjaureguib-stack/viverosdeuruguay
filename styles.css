@@ -50,6 +50,7 @@ body {
   justify-self: end;
   text-align: right;
   color: white;
+
 }
 
 .header-textos h1,
@@ -74,7 +75,7 @@ body {
   scroll-snap-type: x mandatory;
   background: #1ba175;
   justify-content: center;
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav-menu::-webkit-scrollbar {
@@ -632,18 +633,41 @@ border-bottom-right-radius: 50px;
 
   /* ===== HEADER ===== */
   .Contenedor-header {
-    grid-template-columns: 1fr;
+    display: grid;               /* mantenemos grid */
+    grid-template-columns: 1fr;  /* una columna */
     gap: 15px;
-    text-align: center;
+    text-align: center;           /* centra el texto */
+    justify-items: center;        /* centra todos los hijos del grid */
+    align-items: center;          /* centra verticalmente */
+    padding: 20px;
   }
 
   .logo {
-    justify-content: center;
-    font-size: 35px;
-  }
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+  gap: 8px;
+  font-size: 35px;
+  color: wheat;
+  width: 100%;             /* importante para que flex ocupe todo el ancho del grid */
+}
 
   .header-textos {
-    text-align: center;
+  text-align: center;
+  width: 100%;             /* que ocupe todo el ancho */
+}
+
+  .header-textos h1,
+  .header-textos h2 {
+    margin: 0;
+    color: white;
+  }
+
+  /* Buscador */
+  .buscador {
+    width: 100%;
+    display: flex;
+    justify-content: center;      /* centra el input */
   }
 
   .buscador input {
