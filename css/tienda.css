@@ -51,19 +51,55 @@ header h2 {
 /* ================= NAV ================= */
 .nav-menu {
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
   gap: 10px;
-  padding: 15px;
+  padding: 15px 20px;
   list-style: none;
-
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
   background: #1ba175;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  justify-content: flex-start; /* 🔥 CLAVE */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-menu li {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 .nav-menu a {
   text-decoration: none;
   color: black;
   background: wheat;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  transition: 0.3s;
+  white-space: nowrap; /* 🔥 evita cortes raros */
+}
+
+.nav-menu a:hover {
+  background: #29dba0;
+}
+
+.nav-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-menu li {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background:wheat;
   padding: 8px 14px;
   border-radius: 20px;
   font-size: 13px;
