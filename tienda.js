@@ -4,6 +4,46 @@
 const TELEFONO = "59800000000"; // CAMBIAR
 
 // ============================
+// 🌿 PRODUCTOS
+// ============================
+const PRODUCTOS = [
+    // 🌱 INTERIOR
+    { nombre: "Dracena", precio: 260, categoria: "interior" },
+    { nombre: "Triostar", precio: 450, categoria: "interior" },
+    { nombre: "Ficus Burgundy", precio: 1190, categoria: "interior" },
+    { nombre: "Monstera Deliciosa", precio: 1290, categoria: "interior" },
+    { nombre: "Pothos Brasil", precio: 490, categoria: "interior" },
+    { nombre: "Calathea", precio: 650, categoria: "interior" },
+    { nombre: "Diafenbachia Plata", precio: 650, categoria: "interior" },
+    { nombre: "Monstera Adansoni", precio: 490, categoria: "interior" },
+    { nombre: "Philodendro Plata", precio: 790, categoria: "interior" },
+    { nombre: "Sanseveria", precio: 520, categoria: "interior" },
+    { nombre: "Singonium", precio: 450, categoria: "interior" },
+    { nombre: "Calathea Macoyana", precio: 650, categoria: "interior" },
+    { nombre: "Calathea Zebrina", precio: 550, categoria: "interior" },
+    { nombre: "Ficus Tineke", precio: 1300, categoria: "interior" },
+    { nombre: "Camila", precio: 490, categoria: "interior" },
+    { nombre: "Lirios de la Paz", precio: 680, categoria: "interior" },
+    { nombre: "Philodendro Guaimbe", precio: 690, categoria: "interior" },
+    { nombre: "Philodendro Birkin", precio: 720, categoria: "interior" },
+
+    // 🌳 EXTERIOR
+    { nombre: "Pata de Elefante", precio: 790, categoria: "exterior" },
+    { nombre: "Shiflera", precio: 250, categoria: "exterior" },
+    { nombre: "Chamadorea", precio: 430, categoria: "exterior" },
+    { nombre: "Croton", precio: 600, categoria: "exterior" },
+    { nombre: "Ficus Elastica", precio: 1200, categoria: "exterior" },
+
+    // 🌺 EXÓTICAS
+    { nombre: "Aglonema", precio: 590, categoria: "exoticas" },
+    { nombre: "Aglonema Premium", precio: 790, categoria: "exoticas" },
+    { nombre: "Singonium Rosa", precio: 590, categoria: "exoticas" },
+    { nombre: "Alocasia Picoliny", precio: 720, categoria: "exoticas" },
+    { nombre: "Alocasia Black Velvet", precio: 490, categoria: "exoticas" },
+    { nombre: "Alocasia Crupea", precio: 750, categoria: "exoticas" }
+];
+
+// ============================
 // 🛒 ESTADO
 // ============================
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -16,12 +56,43 @@ const btnWhatsapp = document.getElementById("btn-whatsapp");
 const buscador = document.getElementById("buscador");
 
 // ============================
-// 🚀 INIT
+// 🚀 INIT (ARREGLADO)
 // ============================
 document.addEventListener("DOMContentLoaded", () => {
+    renderProductos();
     renderCarrito();
-    activarEventos();
 });
+
+// ============================
+// 🧱 RENDER PRODUCTOS
+// ============================
+function renderProductos() {
+
+    const contenedores = {
+        interior: document.getElementById("productos-interior"),
+        exterior: document.getElementById("productos-exterior"),
+        exoticas: document.getElementById("productos-exoticas")
+    };
+
+    PRODUCTOS.forEach(prod => {
+
+        const contenedor = contenedores[prod.categoria];
+        if (!contenedor) return;
+
+        const card = document.createElement("article");
+        card.classList.add("card-producto");
+
+        card.innerHTML = `
+            <h3>${prod.nombre}</h3>
+            <p>$${prod.precio}</p>
+            <button class="btn-agregar">Agregar</button>
+        `;
+
+        contenedor.appendChild(card);
+    });
+
+    activarEventos(); // 🔥 importante
+}
 
 // ============================
 // 🎯 EVENTOS
