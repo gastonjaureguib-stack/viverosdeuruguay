@@ -71,46 +71,54 @@ body {
 
 /* ================= NAVBAR ================= */
 
-
-
-.nav-menu {
+.nav-img {
   display: flex;
-  text-align: center;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 20px;
-  list-style: none;
-  scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  background: #1ba175;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  background: #197169;
+  
 }
 
-.nav-menu::-webkit-scrollbar {
+.nav-botones {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-botones::-webkit-scrollbar {
   display: none;
 }
 
-.nav-menu li {
+/* BOTONES */
+.nav-botones button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   flex: 0 0 auto;
-  scroll-snap-align: start;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.nav-menu a {
-  text-decoration: none;
-  color: black;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background:wheat;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  transition: 0.3s;
+/* IMÁGENES */
+.nav-botones img {
+  width: clamp(100px, 18vw, 160px);
+  height: auto;
+  height: auto;
+  display: block;
+   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
 }
 
-.nav-menu a:hover {
-  background: #29dba0;
+/* HOVER 🌿 */
+.nav-botones button:hover {
+  transform: translateY(-4px) scale(1.05);
+  filter: brightness(1.1);
 }
 
+/* CLICK */
+.nav-botones button:active {
+  transform: scale(0.95);
+}
 /* ================= HERO ================= */
 .hero {
   padding: 1px;
