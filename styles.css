@@ -29,20 +29,29 @@ body {
   color: wheat;
 }
 
-/*Buscador*/
-.buscador {
-  justify-self: center;
+.buscador-fake {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  max-width: 400px;
+  margin: auto;
 }
 
-.buscador input {
+.fake-input {
+  display: block;
   width: 100%;
-  max-width: 300px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 12px 15px;
+  border-radius: 25px;
+  background: white;
+  color: #777;
+  text-decoration: none;
+  font-size: 1rem;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.fake-input:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: scale(1.02);
 }
 
 /*Textos*/
@@ -321,7 +330,6 @@ border-bottom-right-radius: 50px;
   width: 100%;
   height: 280px;
   object-fit: cover; /* 👈 evita deformaciones */
-  border-radius: 20px;
 }
 
 /* TITULO PRODUCTO */

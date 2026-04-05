@@ -72,17 +72,26 @@ const buscador = document.getElementById("buscador");
 document.addEventListener("DOMContentLoaded", () => {
     renderProductos();
     renderCarrito();
+
+    buscador.addEventListener("input", filtrarProductos); // 🔥 activar buscador
 });
 
 // ============================
 // 🧱 RENDER PRODUCTOS
 // ============================
 function renderProductos() {
+    
     const contenedores = {
-        interior: document.getElementById("productos-interior"),
-        exterior: document.getElementById("productos-exterior"),
-        exoticas: document.getElementById("productos-exoticas")
-    };
+    interior: document.getElementById("productos-interior"),
+    exterior: document.getElementById("productos-exterior"),
+    exoticas: document.getElementById("productos-exoticas"),
+    insumos: document.getElementById("productos-insumos")
+
+};
+
+Object.values(contenedores).forEach(c => {
+    if (c) c.innerHTML = "";
+});
 
     PRODUCTOS.forEach(prod => {
         const contenedor = contenedores[prod.categoria];
@@ -266,3 +275,44 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function filtrarProductos(e) {
+    const texto = e.target.value.toLowerCase();
+
+    const contenedores = {
+        interior: document.getElementById("productos-interior"),
+        exterior: document.getElementById("productos-exterior"),
+        exoticas: document.getElementById("productos-exoticas"),
+        insumos: document.getElementById("productos-insumos")
+    };
+
+    // limpiar todo
+    Object.values(contenedores).forEach(c => {
+        if (c) c.innerHTML = "";
+    });
+
+    // filtrar productos
+    const filtrados = PRODUCTOS.filter(prod =>
+        prod.nombre.toLowerCase().includes(texto)
+    );
+
+    // renderizar filtrados
+    filtrados.forEach(prod => {
+        const contenedor = contenedores[prod.categoria];
+        if (!contenedor) return;
+
+        const card = document.createElement("article");
+        card.classList.add("card-producto");
+
+        card.innerHTML = `
+            <img src="${prod.imagen}" alt="${prod.nombre}">
+            <h3>${prod.nombre}</h3>
+            <p>$${prod.precio}</p>
+            <button class="btn-agregar">Agregar</button>
+        `;
+
+        contenedor.appendChild(card);
+    });
+
+    activarEventos(); // 🔥 esto mantiene tu carrito funcionando
+}
