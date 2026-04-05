@@ -104,7 +104,6 @@ body {
 .nav-botones img {
   width: clamp(100px, 18vw, 160px);
   height: auto;
-  height: auto;
   display: block;
    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
 }
