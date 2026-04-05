@@ -334,3 +334,16 @@ window.addEventListener("DOMContentLoaded", () => {
   const saved = localStorage.getItem("viewMode") || "grid";
   setView(saved);
 });
+
+/* póp up */
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.getElementById("popup-novedades").classList.add("show");
+  }, 800);
+});
+
+function cerrarPopup() {
+  document.getElementById("popup-novedades").classList.remove("show");
+}
+
+document.getElementById("cerrar-popup").addEventListener("click", cerrarPopup);
