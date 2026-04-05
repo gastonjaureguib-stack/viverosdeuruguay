@@ -49,67 +49,53 @@ header h2 {
 }
 
 /* ================= NAV ================= */
-.nav-menu {
+.nav-img {
   display: flex;
-  overflow-x: auto;
+  justify-content: center;
+  padding: 10px;
+  background: #197169;
+  
+}
+
+.nav-botones {
+  display: flex;
   gap: 10px;
-  padding: 15px 20px;
-  list-style: none;
+  overflow-x: auto;
   scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  background:#1ba175;
-  justify-content: center; /* 🔹 ahora centrado */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.nav-menu::-webkit-scrollbar {
+.nav-botones::-webkit-scrollbar {
   display: none;
 }
 
-.nav-menu li {
+/* BOTONES */
+.nav-botones button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   flex: 0 0 auto;
-  scroll-snap-align: start;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.nav-menu a {
-  text-decoration: none;
-  color: black;
-  background: wheat;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  transition: 0.3s;
-  white-space: nowrap; /* 🔥 evita cortes raros */
+/* IMÁGENES */
+.nav-botones img {
+  width: clamp(100px, 18vw, 160px);
+  height: auto;
+  display: block;
+   filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
 }
 
-.nav-menu a:hover {
-  background: #29dba0;
+/* HOVER 🌿 */
+.nav-botones button:hover {
+  transform: translateY(-4px) scale(1.05);
+  filter: brightness(1.1);
 }
 
-.nav-menu::-webkit-scrollbar {
-  display: none;
+/* CLICK */
+.nav-botones button:active {
+  transform: scale(0.95);
 }
-
-.nav-menu li {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: black;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background:wheat;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  transition: 0.3s;
-}
-
-.nav-menu a:hover {
-  background: #29dba0;
-}
-
 /* ================= SECCIONES ================= */
 section {
   margin-top: 40px;
