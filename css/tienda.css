@@ -530,41 +530,26 @@ footer {
     padding: 15px;
   }
 
-  /* Ajustes de cards para mobile */
 @media (max-width: 768px) {
-    .grid-productos {
-        gap: 20px; /* menos espacio entre cards */
-    }
 
-    .card-producto {
-        padding: 10px;          /* menos padding interno */
-        border-radius: 20px;    /* bordes un poquito más pequeños */
-        max-width: 350px;       /* limita ancho */
-        margin: auto;           /* centra la card en la grilla */
-    }
+  .nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .card-producto img {
-    width: 100%;       /* se adapta al ancho de la card */
-    height: auto;      /* mantiene proporción */
-    display: block;    /* elimina posibles espacios extra */
-    border-radius: 12px; /* opcional para que se vea más bonito */
-}
+    flex-wrap: wrap;        /* 🔥 evita que se corte */
+    gap: 8px;
 
-    .card-producto h3 {
-        font-size: 1.5rem;        /* texto más compacto */
-        margin-bottom: 6px;
-    }
+    padding: 10px;
+    width: 100%;
+  }
 
-    .card-producto p {
-        font-size: 1.5rem;        /* precio y demás más chico */
-        margin-bottom: 4px;
-    }
+  .nav-menu a {
+    font-size: 13px;
+    padding: 6px 10px;
 
-    .btn-agregar {
-    display: block;        /* para centrar con margin auto */
-    margin: 15px auto 0;   /* centrado horizontal, separacion superior */
-    padding: 8px;
-    font-size: 1rem;
-    width:250px;           /* 🔹 deja que el botón se ajuste al texto */
-}
+    text-decoration: none;
+    white-space: nowrap;    /* cada link queda prolijo */
+  }
+
 }
