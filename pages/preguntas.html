@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes | PlantStore</title>
+
+  <link rel="stylesheet" href="../css/preguntas.css">
+</head>
+
+<body>
+
+<header>
+  <h1>❓ Preguntas Frecuentes</h1>
+  <p class="intro">
+    En esta sección puede ubicar preguntas como formas de pago, envíos o aquello que sus clientes consulten siempre.
+    <br><br>
+    En este caso le dejo las preguntas frecuentes de este proyecto.
+    <br><br>
+    Considere que también podemos crear una sección "Nosotros" si desea contar su historia.
+  </p>
+</header>
+
+<main class="faq-container">
+
+  <div class="faq-item">
+    <button class="faq-question">¿Son las páginas personalizadas?</button>
+    <div class="faq-answer">
+      <p>
+        Sí, esta plantilla será la base. Luego adaptamos la tienda a tus colores, imágenes, logos y necesidades.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Pueden agregarle formas de pago?</button>
+    <div class="faq-answer">
+      <p>
+        Sí, podemos hacer un carrito completo con formas de pago. Eso lo agregamos como adicional y pasamos al siguiente nivel.
+        <br><br>
+        También puedes manejar stock o una base de datos de usuarios.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Cómo actualizo mis productos?</button>
+    <div class="faq-answer">
+      <p>
+        Simple. Existen 2 formas:
+        <br><br>
+        1) Lo haces tú mismo a través de un usuario y contraseña que te daremos, modificando una planilla Excel.
+        <br><br>
+        2) Lo hacemos por ti. Solo me mandas un mensaje con los cambios y listo. En 24 horas tienes tu tienda actualizada.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Cuánto demoran en hacerme la tienda?</button>
+    <div class="faq-answer">
+      <p>
+        En 48 horas la estás usando 🚀
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 PlantStore</p>
+</footer>
+
+<script>
+  const questions = document.querySelectorAll(".faq-question");
+
+  questions.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+
+      const answer = btn.nextElementSibling;
+      answer.style.display =
+        answer.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+
+</body>
+</html>
