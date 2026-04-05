@@ -16,11 +16,23 @@ header h1 {
   margin-bottom: 15px;
 }
 
+/* ================= PORTADA PREGUNTAS ================= */
+.preguntasimg {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 30px auto;
+  border-radius: 20px;
+}
+
+
+
 /* TEXTO INTRO */
 .intro {
   max-width: 800px;
   margin: auto;
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   opacity: 0.9;
 }
@@ -72,6 +84,9 @@ header h1 {
   background: #2e7d32;
   color: white;
 }
+
+
+
 
 /* FOOTER */
 footer {
