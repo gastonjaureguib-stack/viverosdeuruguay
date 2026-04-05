@@ -208,7 +208,7 @@ border-bottom-right-radius: 50px;
   color: white;
   text-align: center;
   padding-top: 50px;
-  font-size: 3rem;
+  font-size: 2rem;
 
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
@@ -258,7 +258,7 @@ border-bottom-right-radius: 50px;
 
 /* TITULO */
 .card-categoria h3 {
-  font-size: 30px;
+  font-size: 1.5rem;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -291,7 +291,36 @@ border-bottom-right-radius: 50px;
   transform: translateY(-2px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
+/* ================= calendario ================= */
 
+/* ================= CALENDARIO ================= */
+.calendario {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* IMAGEN */
+.calendario img {
+  width: 100%;
+  max-width: 700px; /* 🔥 ajustá esto si la querés más grande */
+  height: auto;
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER suave */
+.calendario img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
 
 /* ================= PRODUCTOS ================= */
 
@@ -633,9 +662,25 @@ border-bottom-right-radius: 50px;
   background: white;
   transform: scale(1.1);
 }
+/* =================mapa ================= */
+.mapa {
+  margin: 50px auto;
+  max-width: 1000px;
+  padding: 20px;
+  text-align: center;
+}
+
+.mapa h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.mapa-container {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
 /* ================= FOOTER ================= */
-
-
 .footer {
   background: linear-gradient(120deg, #2e7d32, #43a047, #81c784);
   color: white;
