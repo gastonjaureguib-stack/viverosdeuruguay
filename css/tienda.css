@@ -96,10 +96,58 @@ header h2 {
 .nav-botones button:active {
   transform: scale(0.95);
 }
+/* ================= toogler ================= */
+
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.view-toggle button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: #f1f1f1;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.view-toggle button:hover {
+  background: #dfeee7;
+  transform: translateY(-2px);
+}
+
+/* botón activo */
+.view-toggle button.active {
+  background: #2e7d32;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.grid-productos {
+  transition: all 0.3s ease;
+}
+
+/* GRID (muchas plantas) */
+.grid-productos.grid {
+   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+/* CARD (una debajo de otra) */
+.grid-productos.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 /* ================= SECCIONES ================= */
 section {
   margin-top: 40px;
 }
+
 
 section h2 {
   text-align: center;
@@ -112,11 +160,9 @@ section h2 {
 
 /* ================= PRODUCTOS ================= */
 .grid-productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
+  
   gap: 20px;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
   padding: 0 15px;
 }
@@ -138,7 +184,7 @@ section h2 {
 }
 
 .card-producto h3 {
-  font-size: 16px;
+  font-size: 30px;
   margin-bottom: 8px;
 }
 
@@ -151,17 +197,40 @@ section h2 {
 
 /* INFO EXTRA */
 .card-producto p {
-  font-size: 13px;
+  font-size: 25px;
   margin-bottom: 5px;
   color: #555;
 }
 
 .card-producto img {
-    width: 100%;       
-    height: 300px;    
-    object-fit: cover; 
-    border-radius: 12px;
-    margin-bottom: 10px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  aspect-ratio: 1 / 1;
+}
+
+/* 🔲 GRID (compacto) */
+.grid-productos.grid .card-producto img {
+  height: 140px;
+}
+
+.grid-productos.grid .card-producto {
+  padding: 12px;
+}
+
+/* 🧾 CARD (grande) */
+.grid-productos.card .card-producto img {
+  height: auto;              
+  aspect-ratio: auto;        
+  max-height: 800px;         
+ 
+  background: #f5f5f5;
+}
+
+.grid-productos.card .card-producto {
+  padding: 12px;
 }
 
 /* BOTON */

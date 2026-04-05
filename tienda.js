@@ -316,3 +316,21 @@ function filtrarProductos(e) {
 
     activarEventos(); // 🔥 esto mantiene tu carrito funcionando
 }
+/*tooler*/
+
+function setView(mode) {
+  const grids = document.querySelectorAll(".grid-productos");
+
+  grids.forEach(container => {
+    container.classList.remove("grid", "card");
+    container.classList.add(mode);
+  });
+
+  localStorage.setItem("viewMode", mode);
+}
+
+/* mantener preferencia al recargar */
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("viewMode") || "grid";
+  setView(saved);
+});
