@@ -199,7 +199,111 @@ section h2 {
   transform: scale(1.03);
 }
 
+/* =========================
+   🪴 CONTENEDOR GRANDE
+========================= */
+#insumos {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 25px;
 
+  background: wheat;
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* GRID INTERNO */
+.grid-insumos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+/* MINI CARDS */
+.item-insumo {
+  background: white;
+  border-radius: 15px;
+  padding: 12px;
+
+  text-align: center;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.item-insumo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* IMAGEN */
+.item-insumo img {
+  width: 100%;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+/* NOMBRE */
+.item-insumo h4 {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* PRECIO */
+.item-insumo p {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+/* BOTÓN */
+.item-insumo .btn-agregar {
+  width: 100%;
+  padding: 6px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: white;
+
+  font-size: 12px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* HOVER BOTÓN */
+.item-insumo .btn-agregar:hover {
+  transform: scale(1.07);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .grid-insumos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .grid-insumos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .item-insumo img {
+    height: 60px;
+  }
+}
 
 /* ================= CARRITO ================= */
 /* Carrito moderno */
@@ -353,6 +457,42 @@ footer {
 
   color: white;
   font-size: 14px;
+}
+/* ================= Boton subir ================= */
+#btn-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #103d39, #207a73);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+
+  z-index: 999;
+}
+
+#btn-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#btn-top:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* ================= MOBILE ================= */

@@ -40,8 +40,19 @@ const PRODUCTOS = [
     { nombre: "Singonium Rosa", precio: 590, categoria: "exoticas", imagen: "../img/plantas/singoniumrosa.png" },
     { nombre: "Alocasia Picoliny", precio: 720, categoria: "exoticas", imagen: "../img/plantas/alocasiapicoliny.png" },
     { nombre: "Alocasia Black Velvet", precio: 490, categoria: "exoticas", imagen: "../img/plantas/alocasiablackvelvet.png" },
-    { nombre: "Alocasia Crupea", precio: 750, categoria: "exoticas", imagen: "../img/plantas/alocasiacrupea.png" }
+    { nombre: "Alocasia Crupea", precio: 750, categoria: "exoticas", imagen: "../img/plantas/alocasiacrupea.png" },
+    
+    // 🪴 INSUMOS
+{ nombre: "Regador de jardín", precio: 1500, categoria: "insumos", imagen: "./img/insumos/regador.png" },
+{ nombre: "Fibra de coco 180g", precio: 250, categoria: "insumos", imagen: "./img/insumos/fibracoco.png" },
+{ nombre: "Tierra 15kg", precio: 250, categoria: "insumos", imagen: "./img/insumos/bolsadetierra.png" },
+{ nombre: "Maceta 1", precio: 200, categoria: "insumos", imagen: "./img/insumos/maceta1.png" },
+{ nombre: "Maceta 2", precio: 250, categoria: "insumos", imagen: "./img/insumos/maceta2.png" },
+{ nombre: "Maceta 3", precio: 500, categoria: "insumos", imagen: "./img/insumos/maceta3.png" },
+{ nombre: "Tutores mix", precio: 200, categoria: "insumos", imagen: "./img/insumos/tutores.png" },
+
 ];
+
 
 // ============================
 // 🛒 ESTADO
@@ -232,3 +243,26 @@ function activarBotonesCarrito() {
         });
     });
 }
+
+// ============================
+// ⬆ BOTÓN VOLVER ARRIBA
+// ============================
+window.addEventListener("DOMContentLoaded", () => {
+    const btnTop = document.getElementById("btn-top");
+    if (!btnTop) return;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+            btnTop.classList.add("show");
+        } else {
+            btnTop.classList.remove("show");
+        }
+    });
+
+    btnTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});

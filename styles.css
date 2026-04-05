@@ -291,33 +291,37 @@ border-bottom-right-radius: 50px;
 /* GRID */
 .grid-productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 40px auto;
   padding: 0 20px;
 }
 
 /* CARD */
 .card-producto {
   background: white;
-  border-radius: 18px;
-  padding: 20px;
-
-  border: 1px solid rgba(0,0,0,0.05);
-
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  border-radius: 16px;
+  overflow: hidden; /* 👈 clave para que la img respete bordes */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  padding-bottom: 15px;
+  transition: 0.3s;
+  padding: 10px;
 }
+
 
 /* HOVER */
 .card-producto:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-producto img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover; /* 👈 evita deformaciones */
+  border-radius: 20px;
 }
 
 /* TITULO PRODUCTO */
