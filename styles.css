@@ -191,7 +191,7 @@ border-bottom-right-radius: 50px;
 .grid-categorias {
   display: grid;
   gap: 25px;
-  max-width: 1500px;
+  max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
   text-align: center;
@@ -251,23 +251,24 @@ border-bottom-right-radius: 50px;
 
 /* TITULO */
 .card-categoria h3 {
-  font-size: 20px;
+  font-size: 30px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 /* TEXTO */
 .card-categoria p {
-  font-size: 14px;
+  font-size: 20px;
   color: black;
   margin-bottom: 15px;
 }
 
 /* BOTÓN */
 .btn-tienda {
-  padding: 10px 16px;
+  padding: 10px 50px;
   border: none;
   border-radius: 12px;
+  
 
   background: linear-gradient(135deg, #43a047, #2e7d32);
   color: white;
