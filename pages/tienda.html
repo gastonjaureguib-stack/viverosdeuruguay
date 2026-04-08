@@ -182,6 +182,33 @@
     <button onclick="cerrarPopup()">Ver tienda</button>
   </div>
 </div>
+
+<!-- ================= MODAL PRODUCTO ================= -->
+<div id="modal-producto" class="modal">
+
+  <div class="modal-contenido">
+
+    <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+
+    <img id="modal-img" src="" alt="">
+
+    <h2 id="modal-nombre"></h2>
+    <p id="modal-precio"></p>
+
+    <div class="modal-info">
+      <p id="modal-luz"></p>
+      <p id="modal-riego"></p>
+      <p id="modal-desc"></p>
+    </div>
+
+    <button class="btn-agregar">Agregar al carrito</button>
+
+  </div>
+
+</div>
+
+
+
 <!-- JS -->
 <script src="../tienda.js"></script>
 
