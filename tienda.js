@@ -1,83 +1,83 @@
 // ============================
-// 🧠 CONFIG
+//  CONFIG
 // ============================
 const TELEFONO = "59891602323";
 
 // ============================
-// 🌿 PRODUCTOS
+// PRODUCTOS 
 // ============================
-const PRODUCTOS = [
-    { nombre: "Dracena", precio: 260, categoria: "interior", imagen: "../img/plantas/dracena.png" },
-    { nombre: "Triostar", precio: 450, categoria: "interior", imagen: "../img/plantas/triostar.png" },
-    { nombre: "Ficus Burgundy", precio: 1190, categoria: "interior", imagen: "../img/plantas/ficusburgundy.png" },
-    { nombre: "Monstera Deliciosa", precio: 1290, categoria: "interior", imagen: "../img/plantas/monsteradeliciosa.png" },
-    { nombre: "Pothos Brasil", precio: 490, categoria: "interior", imagen: "../img/plantas/pothosbrasil.png" },
-    { nombre: "Calathea", precio: 650, categoria: "interior", imagen: "../img/plantas/calathea.png" },
-    { nombre: "Diafenbachia Plata", precio: 650, categoria: "interior", imagen: "../img/plantas/diafenbachiaplata.png" },
-    { nombre: "Monstera Adansoni", precio: 490, categoria: "interior", imagen: "../img/plantas/monsteraadansoni.png" },
-    { nombre: "Philodendro Plata", precio: 790, categoria: "interior", imagen: "../img/plantas/philodendroplata.png" },
-    { nombre: "Sanseveria", precio: 520, categoria: "interior", imagen: "../img/plantas/sanseveria.png" },
-    { nombre: "Singonium", precio: 450, categoria: "interior", imagen: "../img/plantas/singoniumrosa.png" },
-    { nombre: "Calathea Macoyana", precio: 650, categoria: "interior", imagen: "../img/plantas/calatheamacoyana.png" },
-    { nombre: "Calathea Zebrina", precio: 550, categoria: "interior", imagen: "../img/plantas/calatheazebrina.png" },
-    { nombre: "Ficus Tineke", precio: 1300, categoria: "interior", imagen: "../img/plantas/ficustineke.png" },
-    { nombre: "Camila", precio: 490, categoria: "interior", imagen: "../img/plantas/camila.png" },
-    { nombre: "Lirios de la Paz", precio: 680, categoria: "interior", imagen: "../img/plantas/liriosdelapaz.png" },
-    { nombre: "Philodendro Guaimbe", precio: 690, categoria: "interior", imagen: "../img/plantas/philodendroguaimbe.png" },
-    { nombre: "Philodendro Birkin", precio: 720, categoria: "interior", imagen: "../img/plantas/philodendrobirkin.png" },
-
-    { nombre: "Pata de Elefante", precio: 790, categoria: "exterior", imagen: "../img/plantas/patadeelefante.png" },
-    { nombre: "Shiflera", precio: 250, categoria: "exterior", imagen: "../img/plantas/shiflera.png" },
-    { nombre: "Chamadorea", precio: 430, categoria: "exterior", imagen: "../img/plantas/chamadorea.png" },
-    { nombre: "Croton", precio: 600, categoria: "exterior", imagen: "../img/plantas/croton.png" },
-    { nombre: "Ficus Elastica", precio: 1200, categoria: "exterior", imagen: "../img/plantas/ficuselastica.png" },
-
-    { nombre: "Aglonema", precio: 590, categoria: "exoticas", imagen: "../img/plantas/anglomena.png" },
-    { nombre: "Aglonema Premium", precio: 790, categoria: "exoticas", imagen: "../img/plantas/aglonemapremium.png" },
-    { nombre: "Singonium Rosa", precio: 590, categoria: "exoticas", imagen: "../img/plantas/singoniumrosa.png" },
-    { nombre: "Alocasia Picoliny", precio: 720, categoria: "exoticas", imagen: "../img/plantas/alocasiapicoliny.png" },
-    { nombre: "Alocasia Black Velvet", precio: 490, categoria: "exoticas", imagen: "../img/plantas/alocasiablackvelvet.png" },
-    { nombre: "Alocasia Crupea", precio: 750, categoria: "exoticas", imagen: "../img/plantas/alocasiacrupea.png" }
-];
+let PRODUCTOS = [];
 
 // ============================
-// 🛒 ESTADO
+// ESTADO
 // ============================
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // ============================
-// 📦 SELECTORES
+// SELECTORES
 // ============================
 const listaCarrito = document.getElementById("lista-carrito");
 const btnWhatsapp = document.getElementById("btn-whatsapp");
 const buscador = document.getElementById("buscador");
 
 // ============================
-// 🚀 INIT
+// INIT 
 // ============================
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+    await cargarProductos();
+
     renderProductos();
     renderCarrito();
     activarEventos();
+    activarBotonesInsumos(); // ✅ NUEVO
 
-    buscador.addEventListener("input", filtrarProductos);
+    if (buscador) {
+        buscador.addEventListener("input", filtrarProductos);
+    }
 
-    // 👉 aplicar vista guardada
     const saved = localStorage.getItem("viewMode") || "grid";
     setView(saved);
 });
 
 // ============================
-// 🧱 RENDER PRODUCTOS
+//PRODUCTOS
+// ============================
+async function cargarProductos() {
+    try {
+        const ruta = window.location.pathname.includes("pages")
+            ? "../productos.json"
+            : "productos.json";
+
+        const res = await fetch(ruta);
+
+        if (!res.ok) throw new Error("Error en fetch");
+
+        PRODUCTOS = await res.json();
+
+    } catch (error) {
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "No se pudieron cargar los productos"
+        });
+    }
+}
+
+// ============================
+// RENDER PRODUCTOS
 // ============================
 function renderProductos() {
     const contenedores = {
         interior: document.getElementById("productos-interior"),
         exterior: document.getElementById("productos-exterior"),
-        exoticas: document.getElementById("productos-exoticas")
+        exoticas: document.getElementById("productos-exoticas"),
+        insumos: document.getElementById("productos-insumos")
     };
 
-    Object.values(contenedores).forEach(c => c.innerHTML = "");
+    Object.values(contenedores).forEach(c => {
+        if (c) c.innerHTML = "";
+    });
 
     PRODUCTOS.forEach((prod, index) => {
         const contenedor = contenedores[prod.categoria];
@@ -104,13 +104,12 @@ function renderProductos() {
         contenedor.appendChild(card);
     });
 
-    // 👉 aplicar vista después de render
     const saved = localStorage.getItem("viewMode") || "grid";
     setView(saved);
 }
 
 // ============================
-// 🔍 FILTRO
+// FILTRO
 // ============================
 function filtrarProductos(e) {
     const texto = e.target.value.toLowerCase();
@@ -126,10 +125,13 @@ function renderLista(lista) {
     const contenedores = {
         interior: document.getElementById("productos-interior"),
         exterior: document.getElementById("productos-exterior"),
-        exoticas: document.getElementById("productos-exoticas")
+        exoticas: document.getElementById("productos-exoticas"),
+        insumos: document.getElementById("productos-insumos")
     };
 
-    Object.values(contenedores).forEach(c => c.innerHTML = "");
+    Object.values(contenedores).forEach(c => {
+        if (c) c.innerHTML = "";
+    });
 
     lista.forEach(prod => {
         const contenedor = contenedores[prod.categoria];
@@ -150,19 +152,20 @@ function renderLista(lista) {
         const btn = card.querySelector(".btn-agregar");
         btn.addEventListener("click", (e) => {
             e.stopPropagation();
-            agregarAlCarrito(PRODUCTOS.indexOf(prod));
+
+            const indexReal = PRODUCTOS.findIndex(p => p.nombre === prod.nombre);
+            agregarAlCarrito(indexReal);
         });
 
         contenedor.appendChild(card);
     });
 
-    // 👉 aplicar vista después de filtro
     const saved = localStorage.getItem("viewMode") || "grid";
     setView(saved);
 }
 
 // ============================
-// 🪴 MODAL
+// MODAL
 // ============================
 function abrirModal(producto) {
     document.getElementById("modal-producto").style.display = "flex";
@@ -181,7 +184,7 @@ function cerrarModal() {
 }
 
 // ============================
-// 🔲 VIEW TOGGLE
+// VIEW TOGGLE
 // ============================
 function setView(mode) {
     const grids = document.querySelectorAll(".grid-productos");
@@ -202,7 +205,7 @@ function setView(mode) {
 }
 
 // ============================
-// 🛒 CARRITO
+// CARRITO
 // ============================
 function agregarAlCarrito(index) {
     const producto = PRODUCTOS[index];
@@ -226,6 +229,9 @@ function agregarAlCarrito(index) {
     });
 }
 
+// ============================
+// RENDER CARRITO + TOTAL
+// ============================
 function renderCarrito() {
     listaCarrito.innerHTML = "";
 
@@ -234,14 +240,47 @@ function renderCarrito() {
         return;
     }
 
+    let total = 0;
+
     carrito.forEach((item, index) => {
+        total += item.precio * item.cantidad;
+
         const div = document.createElement("div");
         div.innerHTML = `
-            ${item.nombre} x${item.cantidad} - $${item.precio}
-            <button onclick="eliminar(${index})">X</button>
+            <span>${item.nombre} - $${item.precio} x${item.cantidad}</span>
+            
+            <div>
+                <button onclick="restar(${index})">➖</button>
+                <button onclick="sumar(${index})">➕</button>
+                <button onclick="eliminar(${index})">❌</button>
+            </div>
         `;
         listaCarrito.appendChild(div);
     });
+
+    const totalDiv = document.createElement("div");
+    totalDiv.innerHTML = `<strong>Total: $${total}</strong>`;
+    listaCarrito.appendChild(totalDiv);
+}
+
+// ============================
+// +- FUNCIONES
+// ============================
+function sumar(index) {
+    carrito[index].cantidad++;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderCarrito();
+}
+
+function restar(index) {
+    carrito[index].cantidad--;
+
+    if (carrito[index].cantidad <= 0) {
+        carrito.splice(index, 1);
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderCarrito();
 }
 
 function eliminar(index) {
@@ -251,9 +290,11 @@ function eliminar(index) {
 }
 
 // ============================
-// 📲 WHATSAPP
+// WHATSAPP
 // ============================
 function activarEventos() {
+    if (!btnWhatsapp) return;
+
     btnWhatsapp.addEventListener("click", () => {
         if (carrito.length === 0) return;
 
@@ -265,3 +306,88 @@ function activarEventos() {
         window.open(`https://wa.me/${TELEFONO}?text=${encodeURIComponent(mensaje)}`);
     });
 }
+
+// ============================
+// INSUMOS (HTML)
+// ============================
+function activarBotonesInsumos() {
+    const insumos = document.querySelectorAll(".item-insumo");
+
+    insumos.forEach(item => {
+        const nombre = item.querySelector("h4").innerText;
+        const precioTexto = item.querySelector("p").innerText;
+        const precio = parseInt(precioTexto.replace(/\D/g, ""));
+
+        const btn = item.querySelector(".btn-agregar");
+
+        btn.addEventListener("click", () => {
+            const existe = carrito.find(p => p.nombre === nombre);
+
+            if (existe) {
+                existe.cantidad++;
+            } else {
+                carrito.push({
+                    nombre,
+                    precio,
+                    cantidad: 1
+                });
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            renderCarrito();
+
+            Swal.fire({
+                title: "Agregado",
+                text: nombre,
+                icon: "success",
+                timer: 1200,
+                showConfirmButton: false
+            });
+        });
+    });
+}
+// ============================
+// DESTACADOS INDEX
+// ============================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const botones = document.querySelectorAll(".destacados .btn-agregar");
+
+    botones.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+
+            const card = e.target.closest(".card-producto");
+
+            const nombre = card.querySelector("h3").innerText;
+            const precioTexto = card.querySelector("p").innerText;
+            const precio = parseInt(precioTexto.replace(/\D/g, ""));
+
+            const existe = carrito.find(p => p.nombre === nombre);
+
+            if (existe) {
+                existe.cantidad++;
+            } else {
+                carrito.push({
+                    nombre,
+                    precio,
+                    cantidad: 1
+                });
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            renderCarrito();
+
+            Swal.fire({
+                title: "Agregado",
+                text: nombre,
+                icon: "success",
+                timer: 1200,
+                showConfirmButton: false
+            });
+
+        });
+
+    });
+
+});
